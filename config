@@ -1,6 +1,6 @@
 {
 	"layer": "top",
-	"modules-left": ["custom/launcher", "custom/spotify", "wireplumber"],
+	"modules-left": ["custom/launcher", "wireplumber", "custom/spotify"],
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": ["network", "cpu", "memory", "battery", "clock"],
 	
