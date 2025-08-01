@@ -1,0 +1,114 @@
+{
+	"layer": "top",
+	"modules-left": ["custom/launcher", "custom/spotify", "wireplumber"],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": ["network", "cpu", "memory", "battery", "clock"],
+	
+  "wireplumber": {
+    "tooltip": false,
+    "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 {volume}%",
+    "on-click":"kitty -- alsamixer -V all",
+    "format-icons": {
+      "default": ["", "", ""]
+    }
+  },
+
+
+"network": {
+  "interval": 2,
+  "tooltip": true,
+  "format-ethernet": " {bandwidthDownBytes} ↓ {bandwidthUpBytes} ↑",
+  "format-disconnected": "󰌙",
+  "tooltip-format": "{ipaddr}",
+  "on-click": "kitty -- nmtui"
+},
+
+
+
+
+	"backlight": {
+		"tooltip": false,
+		"format": " {}%",
+		"interval":1,
+        "on-scroll-up": "light -A 5",
+		"on-scroll-down": "light -U 5"
+	},
+
+
+  "battery": {
+      "states": {
+          "full": 100,
+          "good": 95,
+          "decent": 50,
+          "warning": 30,
+          "critical": 20
+      },
+      "format": "{icon}  {capacity}%",
+      "format-time": "{H} h {M} min",
+      "format-alt": "{icon} {time}",
+      "format-icons": ["", "", "", "", ""]
+  },
+
+
+  "clock": {
+      "format": "{:%H:%M}",
+      "format-alt": "{:%m-%d-%Y}"
+  },
+
+
+  "cpu": {
+      "interval": 15,
+      "format": "  {}%",
+      "max-length": 10,
+      "on-click":"kitty -- btop"
+  },
+
+
+  "memory": {
+      "interval": 30,
+      "format": "  {}%",
+      "max-length": 10
+  },
+
+
+"custom/spotify": {
+    "exec": "python3 ~/.config/system_scripts/mediaplayer.py --player spotify",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-scroll-up": "playerctl --player=spotify next",
+    "on-scroll-down": "playerctl --player=spotify previous"
+},
+
+
+
+  "custom/launcher":{
+      "format": " ",
+      "on-click": "sh ~/.config/rofi/launchers/type-2/launcher.sh",
+      "on-click-right": "killall rofi"
+  },
+
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+    },
+    "active": "",
+    "sort-by-number": true
+  },
+}
+
+
